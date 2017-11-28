@@ -52,7 +52,7 @@
         </div>
         <h3>The Schedule</h3>
         <div>
-            <p> Please select the Schedule tab to see a list all games. Please select a game to see a roster of the players in this game, and be able to edit their stats. yadad yada  </p>
+            <p> Please select the Schedule tab to see a list all games. Please select a game to see a roster of the players in this game, and be able to edit their stats. </p>
         </div>
         <h3>Player Stats</h3>
         <div>
