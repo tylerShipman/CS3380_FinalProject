@@ -8,7 +8,7 @@ class StatModel{
 
   public function __construct(){
     session_start();
-    $this->initDatabaseConnection();
+    $this->mysqli = initDatabaseConnection();
   }
 
   public function __destruct(){
