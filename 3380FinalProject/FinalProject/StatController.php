@@ -16,18 +16,23 @@ class StatController{
   private $data = array();
 
   public function __construct(){
-    print("Constructed");
-
   }
 
   public function __destruct(){
-    print("Destructed");
   }
 
   public function run(){
-    print("Hello");
-  }
 
+  switch($this->view) {
+    case 'players':
+      print("Players Page");
+      break;
+    case 'stats':
+      print("Stats page");
+    default: //Homepage
+      print("Homepage");
+
+  }
 
 }
  ?>
