@@ -1,3 +1,5 @@
+//Alex FTPusername: epiz_20659234 FTPPass: across13 FTPhostname: ftp.epizy.com
+
 <?php
 $servername = "sql303.epizy.com";
 $username = "epiz_20659234";
