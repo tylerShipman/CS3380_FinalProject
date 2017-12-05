@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <!-- Luke Strege
 	14206751
     12/6/16
 	-->
 
+=======
+>>>>>>> origin/Harrison_L
 <!DOCTYPE html>
 <html>
 <head>
