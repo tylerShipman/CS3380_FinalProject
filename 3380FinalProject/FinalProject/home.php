@@ -58,21 +58,17 @@
         
         <div class="accordgrid">
     <div id="accordion">
-        <h3>Missouri VS Texas AM</h3>
+        <h3>Missouri Tigers VS Utah Utes </h3>
         <div>
             <p> TABLE </p>
         </div>
-        <h3>Missouri VS Utah </h3>
+        <h3>Texas AM VS Missouri Tigers </h3>
         <div>
             <p> TABLE </p>
         </div>
-        <h3>Missouri VS </h3>
+        <h3>Texas AM VS Utah Utes </h3>
         <div>
             <p> TABLE </p>
-        </div>
-        <h3>Missouri VS </h3>
-        <div>
-            <p> TABLE</p>
         </div>
     </div>
         </div>
