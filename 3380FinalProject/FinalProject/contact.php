@@ -37,10 +37,9 @@
     <div>
         <div class="navigation">
             <div class="row">
-                <div class="col-sm-3"><a href="home.php">Schedule</a></div>
-                <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
-                <div class="col-sm-3">Stats</div>
-                <div class="col-sm-3"><a href="logout.php">Logout</a></div>
+                <div class="col-sm-4"><a href="home.php">Schedule</a></div>
+                <div class="col-sm-4"><a href="portfolio.php">Stats</a></div>
+                <div class="col-sm-4"><a href="logout.php">Logout</a></div>
             </div>
         </div>
 

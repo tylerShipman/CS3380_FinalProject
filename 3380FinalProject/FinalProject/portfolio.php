@@ -39,13 +39,12 @@
         <div class="portfolio-bg">
         <div class="navigation">
             <div class="row">
-                <div class="col-sm-3"><a href="home.php">Schedule</a></div>
-                <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
-                <div class="col-sm-3">Stats</div>
-                <div class="col-sm-3"><a href="logout.php">Logout</a></div>
+                <div class="col-sm-4"><a href="home.php">Schedule</a></div>
+                <div class="col-sm-4"><a href="portfolio.php">Stats</a></div>
+                <div class="col-sm-4"><a href="logout.php">Logout</a></div>
             </div>
         </div>
-            <h1>Players by Team</h1>
+            <h1>Stats by Game</h1>
             <div class="tables">
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
