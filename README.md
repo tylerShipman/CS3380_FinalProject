@@ -10,6 +10,7 @@ The home page is the central location where you can branch off to look at either
 
 Entity Relationship Diagram:
 
+
 Implementation of CRUD:
 
 Video Demonstration:
