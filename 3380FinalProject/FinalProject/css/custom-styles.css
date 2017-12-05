@@ -19,6 +19,13 @@
     text-align: center;
 }
 
+.tables{
+    border-collapse: collapse;
+    margin-left: 310px;
+    margin-right: 310px;
+    
+}
+
 .tables th, .tables td{
     margin: 20px;
     padding:20px;
@@ -27,7 +34,6 @@
     font-family: sans-serif;
     background-color: dimgray;
     align-content: center;
-    border-collapse: collapse;
 }
 
 .tables tr{

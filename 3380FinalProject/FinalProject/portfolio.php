@@ -50,54 +50,59 @@
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
 
-                    echo "<th> Home  </th>";
-                    echo "<th> Away  </th>";
-                    echo "<th> Date  </th>";
+                    echo "<th> Player  </th>";
+                    echo "<th> Number  </th>";
+                    echo "<th> Fouls</th>";
+                    echo "<th> Freethrow %</th>";
+                    echo "<th> 3 point %</th>";
 
                     for ($row=1; $row <= 3; $row++) { 
                             echo "<tr>";
-                            for ($col=1; $col <= 3; $col++) { 
+                            for ($col=1; $col <= 5; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
                              echo "</tr>";
                             }
-                            echo "</table>";
+                            echo "</table><br>";
                 ?>
             </div>
              <div class="tables">
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
 
-                    echo "<th> Home  </th>";
-                    echo "<th> Away  </th>";
-                    echo "<th> Date  </th>";
+                    echo "<th> Player  </th>";
+                    echo "<th> Number  </th>";
+                    echo "<th> Fouls</th>";
+                    echo "<th> Freethrow %</th>";
+                    echo "<th> 3 point %</th>";
 
                     for ($row=1; $row <= 3; $row++) { 
                             echo "<tr>";
-                            for ($col=1; $col <= 3; $col++) { 
+                            for ($col=1; $col <= 5; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
                              echo "</tr>";
                             }
-                            echo "</table>";
+                            echo "</table><br>";
                 ?>
             </div>
              <div class="tables">
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
-
-                    echo "<th> Home  </th>";
-                    echo "<th> Away  </th>";
-                    echo "<th> Date  </th>";
-
+                 
+                    echo "<th> Player  </th>";
+                    echo "<th> Number  </th>";
+                    echo "<th> Fouls</th>";
+                    echo "<th> Freethrow %</th>";
+                    echo "<th> 3 point %</th>";
                     for ($row=1; $row <= 3; $row++) { 
                             echo "<tr>";
-                            for ($col=1; $col <= 3; $col++) { 
+                            for ($col=1; $col <= 5; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
                              echo "</tr>";
                             }
-                            echo "</table>";
+                            echo "</table><br>";
                 ?>
             </div>
         </div>
