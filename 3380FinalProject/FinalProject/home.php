@@ -1,7 +1,3 @@
-<!-- 
-    run() needs to report the ScheduleView()
--->
-
 <?php
     
     if(!session_start()){
@@ -60,7 +56,7 @@
         <div id="accordion">
             <h3>Missouri Tigers VS Utah Utes </h3>
             <div>
-                <p> TABLE </p>
+                <p> <a href="contact.php">Stats</a></p>
             </div>
             <h3>Texas A&amp;M VS Missouri Tigers </h3>
             <div>
