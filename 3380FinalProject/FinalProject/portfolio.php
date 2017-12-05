@@ -46,20 +46,20 @@
             </div>
         </div>
             <h1>Players by Team</h1>
-            <div class = "tables">
+            <div class="tables">
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
 
-                    echo "<td class = tables> Home  <td>";
-                    echo "<td> Away  <td>";
-                    echo "<td> Date  <td>";
+                    echo "<th> Home  </th>";
+                    echo "<th> Away  </th>";
+                    echo "<th> Date  </th>";
 
                     for ($row=1; $row <= 3; $row++) { 
-                            echo "<td>";
+                            echo "<tr>";
                             for ($col=1; $col <= 3; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
-                             echo "</td>";
+                             echo "</tr>";
                             }
                             echo "</table>";
                 ?>

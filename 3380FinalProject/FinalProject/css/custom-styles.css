@@ -26,14 +26,24 @@
     border: 3px solid goldenrod;
     font-family: sans-serif;
     background-color: dimgray;
-    color: red;
+    align-content: center;
+    border-collapse: collapse;
+}
+
+table.center{
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    width: 100%;
 }
 
 .tables tr{
+    margin: 20px;
     padding: 10px;
     font-size: 20px;
     font-family: sans-serif;
-    color: red;
+    color: black;
+    text-align: center;
 }
 
 .portfolio-bg {
