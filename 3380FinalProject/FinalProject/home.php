@@ -45,33 +45,33 @@
 
 <body>
     <div class="home-bg">
-    <div class="navigation">
-        <div class="row">
-            <div class="col-sm-3"><a href="home.php">Schedule</a></div>
-            <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
-            <div class="col-sm-3"><a href="contact.php">Stats</a></div>
-            <div class="col-sm-3"><a href="logout.php">Logout</a></div>
+        <div class="navigation">
+            <div class="row">
+                <div class="col-sm-3"><a href="home.php">Schedule</a></div>
+                <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
+                <div class="col-sm-3"><a href="contact.php">Stats</a></div>
+                <div class="col-sm-3"><a href="logout.php">Logout</a></div>
+            </div>
         </div>
-    </div>
-        
-        <h1>Basketball Schedule</h1>
-        
-        <div class="accordgrid">
-    <div id="accordion">
-        <h3>Missouri Tigers VS Utah Utes </h3>
-        <div>
-            <p> TABLE </p>
+
+            <h1>Basketball Schedule</h1>
+
+            <div class="accordgrid">
+        <div id="accordion">
+            <h3>Missouri Tigers VS Utah Utes </h3>
+            <div>
+                <p> TABLE </p>
+            </div>
+            <h3>Texas A&amp;M VS Missouri Tigers </h3>
+            <div>
+                <p> TABLE </p>
+            </div>
+            <h3>Texas A&amp;M VS Utah Utes </h3>
+            <div>
+                <p> TABLE </p>
+            </div>
         </div>
-        <h3>Texas A&amp;M VS Missouri Tigers </h3>
-        <div>
-            <p> TABLE </p>
-        </div>
-        <h3>Texas A&amp;M VS Utah Utes </h3>
-        <div>
-            <p> TABLE </p>
-        </div>
-    </div>
-        </div>
+            </div>
         </div>
 </body>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
