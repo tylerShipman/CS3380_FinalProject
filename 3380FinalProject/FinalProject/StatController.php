@@ -1,7 +1,7 @@
 <?php
 //Require statements later
 
-//require ('StatViews.php');
+require ('StatModel.php');
 
 //Controller class
 
