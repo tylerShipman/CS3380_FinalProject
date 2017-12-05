@@ -39,10 +39,8 @@
     <div class="home-bg">
     <div class="navigation">
         <div class="row">
-            <div class="col-sm-3"><a href="home.php">Schedule</a></div>
-            <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
-            <div class="col-sm-3"><a href="contact.php">Stats</a></div>
-            <div class="col-sm-3"><a href="logout.php">Logout</a></div>
+            <div class="col-sm-3"><a href="index.php?view=schedule">Schedule</a></div>
+            <div class="col-sm-3"><a href="index.php?view=players">Players</a></div>
         </div>
     </div>
         <div class="accordgrid">
