@@ -28,7 +28,7 @@ class StatController{
       exit;
     }
 
-    $this->model.getStats(1);
+    $this->model->getStatsGame(1);
   }
 
 }
