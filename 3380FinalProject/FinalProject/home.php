@@ -5,12 +5,12 @@
 	-->
 
 <?php
-    
+
     if(!session_start()){
         header("Location: home.php");
         exit;
     }
-    
+
     if(!isset($_SESSION['loggedin'])){
         header("Location: index.php");
         exit;
@@ -68,17 +68,17 @@
     <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="form.js"></script>
 =======
-<!-- 
+<!--
     run() needs to report the ScheduleView()
 -->
 
 <?php
-    
+
     if(!session_start()){
         header("Location: home.php");
         exit;
     }
-    
+
     if(!isset($_SESSION['loggedin'])){
         header("Location: index.php");
         exit;
@@ -110,7 +110,7 @@
             font-family: fantasy;
         }
     </style>
-    
+
 </head>
 
 <body>
@@ -123,9 +123,9 @@
             <div class="col-sm-3"><a href="logout.php">Logout</a></div>
         </div>
     </div>
-        
+
         <h1>Basketball Schedule</h1>
-        
+
         <div class="accordgrid">
     <div id="accordion">
         <h3>Missouri VS Texas AM</h3>
