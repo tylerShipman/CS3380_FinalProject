@@ -23,20 +23,12 @@ class StatController{
   }
 
   public function run(){
-  if ($error = $this->model->getError()) {
-    print $error;
-    exit;
-  }
-  switch($this->view) {
-    case 'players':
-      print("Players Page");
-      break;
-    case 'stats':
-      print("Stats page");
-      break;
-    default: //Homepage
-      print("Homepage");
+    if ($error = $this->model->getError()) {
+      print $error;
+      exit;
     }
+
+    $this->model.getStats(1);
   }
 
 }
