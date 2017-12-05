@@ -62,11 +62,11 @@
         <div>
             <p> TABLE </p>
         </div>
-        <h3>Texas AM VS Missouri Tigers </h3>
+        <h3>Texas A&amp;M VS Missouri Tigers </h3>
         <div>
             <p> TABLE </p>
         </div>
-        <h3>Texas AM VS Utah Utes </h3>
+        <h3>Texas A&amp;M VS Utah Utes </h3>
         <div>
             <p> TABLE </p>
         </div>
