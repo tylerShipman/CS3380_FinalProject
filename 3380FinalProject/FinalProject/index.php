@@ -1,9 +1,5 @@
 <?php
-  require('StatController.php');
+require 'StatController.php';
+print("HELLO");
 
-
-  $controller = new StatController();
-  $controller->run();
-
-
- ?>
+?>
