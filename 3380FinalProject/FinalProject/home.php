@@ -56,15 +56,15 @@
         <div id="accordion">
             <h3>Missouri Tigers VS Utah Utes </h3>
             <div>
-                <p> <a href="contact.php">Stats</a></p>
+                <p> <a href="contact.php">Edit Game Stats</a></p>
             </div>
             <h3>Texas A&amp;M VS Missouri Tigers </h3>
             <div>
-                <p> TABLE </p>
+                <p> <a href="contact.php">Edit Game Stats</a> </p>
             </div>
             <h3>Texas A&amp;M VS Utah Utes </h3>
             <div>
-                <p> TABLE </p>
+                <p><a href="contact.php">Edit Game Stats</a></p>
             </div>
         </div>
             </div>

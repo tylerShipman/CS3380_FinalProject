@@ -19,13 +19,21 @@
     text-align: center;
 }
 
-.portfolio img {
-    height: 150px;
-    width: 150px;
+.tables th, .tables td{
+    margin: 20px;
+    padding:20px;
+    font-size: 20pt;
+    border: 3px solid goldenrod;
+    font-family: sans-serif;
+    background-color: dimgray;
+    color: red;
 }
 
-.portfoliovideo {
-    margin-top: 10px;
+.tables tr{
+    padding: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: red;
 }
 
 .portfolio-bg {
