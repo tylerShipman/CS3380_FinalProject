@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-sm-3"><a href="home.php">Schedule</a></div>
                 <div class="col-sm-3"><a href="portfolio.php">Players</a></div>
-                <div class="col-sm-3"><a href="contact.php">Stats</a></div>
+                <div class="col-sm-3">Stats</div>
                 <div class="col-sm-3"><a href="logout.php">Logout</a></div>
             </div>
         </div>

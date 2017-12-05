@@ -30,13 +30,6 @@
     border-collapse: collapse;
 }
 
-table.center{
-    margin-left: auto;
-    margin-right: auto;
-    table-layout: auto;
-    width: 100%;
-}
-
 .tables tr{
     margin: 20px;
     padding: 10px;
