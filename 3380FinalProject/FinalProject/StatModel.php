@@ -57,127 +57,6 @@ class StatModel{
 
 
 
-  //Returns the stats for a given game id
-  //This only returns 1 player
-  // public function getStatsGame($id){
-  //   $this->error = '';
-  //   $stats = null;
-
-  //   //Are we connected to the database?
-  //   if(!$this->mysqli){
-  //     $this->error = "No Connection to database.";
-  //     return array($stats, $this->error);
-  //   }
-
-  //   //Were we given an ID?
-  //   if(!$id){
-  //     $this->error = "No game id specifed.";
-  //     return array($stats, $this->error);
-
-  //   }
-
-  //   $gameIDEscaped = $this->mysqli->real_escape_string($id);
-
-  //   $sql = "SELECT teams.teamSchool , players.playerNumber, players.playerLastName, players.playerFirstName, stats.fouls, stats.freethrow_makes, stats.freethrow_attempts, stats.freethrow_makes, stats.freethrow_attempts, stats.stat_entry_id FROM teams, games, stats, players WHERE games.game_id = '$gameIDEscaped' AND players.player_id = stats.player_id AND players.playerTeamID = teams.team_id";
-
-  //   //print($sql);
-  //   if($result = $this->mysqli->query($sql)) {
-  //     if ($result->num_rows > 0){
-  //         $stats = $result->fetch_assoc();
-  //     }
-  //       $result->close();
-  //   } else{ 
-  //       $this->error = $this->mysqli->error;
-  //   }
-  //   return array($stats, $this->error);    
-
-  // }
-
-
-
-
-  //returns all stats for each game
-  public function getStatsGameFull($id){
-    $this->error = '';
-    $stats = array();
-
-    //Are we connected to the database?
-    if(!$this->mysqli){
-      $this->error = "No Connection to database.";
-      return array($stats, $this->error);
-    }
-
-    //Were we given an ID?
-    if(!$id){
-      $this->error = "No game id specifed.";
-      return array($stats, $this->error);
-
-    }
-
-    $gameIDEscaped = $this->mysqli->real_escape_string($id);
-
-    $sql = "SELECT teams.teamSchool AS 'School', players.playerNumber AS '#', players.playerLastName AS 'Last', players.playerFirstName AS 'First', stats.fouls AS 'Fouls', stats.freethrow_makes AS'Freethrow Makes', stats.freethrow_attempts AS 'Freethrow Misses', stats.threepoint_makes AS '3 Point Makes', stats.threepoint_attempts AS '3 Point Misses', IFNULL( (
-      stats.freethrow_makes / ( stats.freethrow_makes + stats.freethrow_attempts ) *100 ) , 0
-      ) AS 'Freethrow %', stats.threepoint_makes AS '3 Point Makes', stats.threepoint_attempts AS '3 Point Misses', IFNULL( (
-      stats.threepoint_makes / ( stats.threepoint_makes + stats.threepoint_attempts ) *100 ) , 0
-      ) AS '3 Point %', stats.stat_entry_id FROM teams, games, stats, players WHERE games.game_id = '$gameIDEscaped' AND players.player_id = stats.player_id AND players.playerTeamID = teams.team_id";
-
-    //print($sql);
-    if($result = $this->mysqli->query($sql)) {
-      if ($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-              array_push($stats, $row);
-          }
-      }
-        $result->close();
-    } else{ 
-        $this->error = $this->mysqli->error;
-    }
-    return array($stats, $this->error);    
-
-  }
-
-
-
-  public function getGameList(){
-    $this->error = '';
-    $games = array();
-
-    //Are we connected to the database?
-    if(!$this->mysqli){
-      $this->error = "No Connection to database.";
-      return array($games, $this->error);
-    }
-
-
-    $sql = "SELECT games.game_id, GROUP_CONCAT( teams.teamSchool
-SEPARATOR  ' vs. ' ) AS 'Game' , games.gameTime AS 'Game Time'
-FROM teams, games
-WHERE (
-games.teamIDHome = teams.team_id
-OR games.teamIDAway = teams.team_id
-)
-GROUP BY games.game_id
-ORDER BY games.gameTime;";
-
-    //print($sql);
-    if($result = $this->mysqli->query($sql)) {
-      if ($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-              array_push($games, $row);
-          }
-      }
-        $result->close();
-    } else{ 
-        $this->error = $this->mysqli->error;
-    }
-    return array($games, $this->error);    
-
-  }
-
-
-
-
 
   public function getPlayerList($id){
     $this->error = '';
@@ -199,9 +78,9 @@ ORDER BY games.gameTime;";
 
 
     $sql = "SELECT * 
-FROM players, teams
-WHERE players.playerTeamID = teams.team_id
-AND teams.team_id = '$gameIDEscaped'";
+            FROM players, teams
+            WHERE players.playerTeamID = teams.team_id
+            AND teams.teamSchool = '$gameIDEscaped'";
 
     //print($sql);
     if($result = $this->mysqli->query($sql)) {
@@ -218,32 +97,31 @@ AND teams.team_id = '$gameIDEscaped'";
 
   }
 
-
-
-
-
-//add player to a game
-public function addPlayerToGame($data) {
+    public function addPlayer($data) {
       $this->error = '';
       
       
-      $game_id=$data['game_id'];
-      $player_id=$data['player_id'];
+      $firstName = $data['playerFirstName'];
+      $lastName = $data['playerLastName'];
+      $number = $data['playerNumber'];
+      $position = $data['playerPosition'];
+      $playerTeamID = $data['playerTeamID'];
       
-      if (! $game_id) {
-        $this->error = "No game_id found for task to add. A game_id is required.";
+      if (! $firstName) {
+        $this->error = "No title found for task to add. A title is required.";
         return $this->error;      
       }
       
-      if (! $player_id) {
-        $category = '';
+      if (! $) {
+        $category = 'uncategorized';
       }
       
-      $game_idEscaped = $this->mysqli->real_escape_string($game_id);    
-      $player_idEscaped = $this->mysqli->real_escape_string($player_id);
+      $titleEscaped = $this->mysqli->real_escape_string($title);    
+      $categoryEscaped = $this->mysqli->real_escape_string($category);
+      $descriptionEscaped = $this->mysqli->real_escape_string($description);
+      $userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
 
-
-      $sql = "INSERT INTO stats(game_id, player_id) VALUES ('$game_idEscaped', '$player_idEscaped')";
+      $sql = "INSERT INTO tasks (title, description, category, addDate, userID) VALUES ('$titleEscaped', '$descriptionEscaped', '$categoryEscaped', NOW(), $userIDEscaped)";
   
       if (! $result = $this->mysqli->query($sql)) {
         $this->error = $this->mysqli->error;
@@ -253,42 +131,5 @@ public function addPlayerToGame($data) {
     }
 
 
-//This needs editing
-    public function updatePlayerStats($data) {
-      $this->error = '';
-      
-      
-      if (! $this->mysqli) {
-        $this->error = "No connection to database. Unable to update task.";
-        return $this->error;
-      }
-      
-      $id = $data['id'];
-      if (! $id) {
-        $this->error = "No id specified for task to update.";
-        return $this->error;      
-      }
-      
-      $title = $data['title'];
-      if (! $title) {
-        $this->error = "No title found for task to update. A title is required.";
-        return $this->error;      
-      }   
-      
-      $description = $data['description'];
-      $category = $data['category'];
-      
-      $idEscaped = $this->mysqli->real_escape_string($id);
-      $titleEscaped = $this->mysqli->real_escape_string($title);
-      $descriptionEscaped = $this->mysqli->real_escape_string($description);
-      $categoryEscaped = $this->mysqli->real_escape_string($category);
-      $userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
-      $sql = "UPDATE tasks SET title='$titleEscaped', description='$descriptionEscaped', category='$categoryEscaped' WHERE userID = $userIDEscaped AND id = $idEscaped";
-      if (! $result = $this->mysqli->query($sql) ) {
-        $this->error = $this->mysqli->error;
-      } 
-      
-      return $this->error;
-    }
 }
 ?>
