@@ -49,27 +49,21 @@
             </div>
         </div>
 
-            <h1>Basketball Schedule</h1>
+            <h1>Team Editor</h1>
 
             <div class="accordgrid">
         <div id="accordion">
-            <h3>Missouri Tigers VS Utah Utes</h3>
+            <h3>Utah Utes</h3>
             <div>
-                <p>
-                    November 16, 2017 at 8:30pm<br><br>
-                    <a href="contact.php">Edit Game Stats</a></p>
+                
             </div>
-            <h3>Texas A&amp;M VS Missouri Tigers </h3>
+            <h3>Missouri Tigers </h3>
             <div>
-                <p>
-                    January 20, 2018 at 3:00pm<br><br>
-                    <a href="contact.php">Edit Game Stats</a> </p>
+                
             </div>
-            <h3>Texas A&amp;M VS Utah Utes </h3>
+            <h3>Texas A&amp;M</h3>
             <div>
-                <p>
-                    Feburary 20, 2018 at 8:00pm<br><br>
-                    <a href="contact.php">Edit Game Stats</a></p>
+               
             </div>
         </div>
             </div>

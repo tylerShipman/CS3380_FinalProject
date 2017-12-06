@@ -42,90 +42,39 @@
             </div>
         </div>
             <h1>Stats by Game</h1>
-            <div class="tables">
-                <?php
-                    echo "<table border ='1' style='border-collapse: collapse'>";
-
-                    echo "<th> School </th>";
-                    echo "<th> Team ID </th>";
-                    echo "<th> Player </th>";
-                    echo "<th> Number </th>";
-                    echo "<th> Position </th>";
-                    echo "<th> Fouls</th>";
-                    echo "<th> Freethrow %</th>";
-                    echo "<th> 3 point %</th>";
-
-                    for ($row=1; $row <= 3; $row++) { 
-                            echo "<tr>";
-                            for ($col=1; $col <= 8; $col++) { 
-                               echo "<td>Team $col</td>";
-                                }
-                             echo "</tr>";
-                            }
-                            echo "</table><br>";
-                ?>
-            </div>
              <div class="tables">
                 <?php
                 
                  require ('StatModel.php');
+                // private $model;
                  $model = new StatModel();
-                 //$this->model = new StatModel();
                  
-                list($stats, $error) = model->getStatsGameFull(1);
+                list($stats, $error) = $model->getStatsGameFull(1);
                  
                  echo "<table border ='1' style='border-collapse: collapse'>";
-                    
+                    echo "<class = game> Missouri VS Texas A&M";
                     echo "<th> School </th>";
-                    echo "<th> Team ID </th>";
                     echo "<th> Player </th>";
                     echo "<th> Number </th>";
-                    echo "<th> Position </th>";
-                    echo "<th> Fouls</th>";
-                    echo "<th> Freethrow %</th>";
-                    echo "<th> 3 point %</th>";
                 
                  foreach ($stats as $stat)
                  {
                      $school = $stat['School'];
                      $playerF = $stat['First'];
                      $playerL = $stat['Last'];
-                     $fouls = $stat['Fouls'];
-                     $freethrow = $stat['Freethrow %'];
-                     $threepoint = $stat['3 Point %'];
+                     $number = $stat['#'];
                      
+                     echo "<tr>";
                      echo "<td>$school</td>";
                      echo "<td>$playerF $playerL</td>";
-                     echo "<td> $fouls </td>";
-                     echo "<td>$freethrow</td>";
-                     echo "<td>$threepoint</td>";
-                 }
-                            echo "</table><br>";
-                ?>
+                     echo "<td> $number </td>";
+                    echo "</tr>";
+                }
+                 echo "</table><br>";
+                
+                 ?>
             </div>
-             <div class="tables">
-                <?php
-                    echo "<table border ='1' style='border-collapse: collapse'>";
-                 
-                   echo "<th> School </th>";
-                    echo "<th> Team ID </th>";
-                    echo "<th> Player </th>";
-                    echo "<th> Number </th>";
-                    echo "<th> Position </th>";
-                    echo "<th> Fouls</th>";
-                    echo "<th> Freethrow %</th>";
-                    echo "<th> 3 point %</th>";
-
-                    for ($row=1; $row <= 3; $row++) { 
-                            echo "<tr>";
-                            for ($col=1; $col <= 8; $col++) { 
-                               echo "<td>Team $col</td>";
-                                }
-                             echo "</tr>";
-                            }
-                            echo "</table><br>";
-                ?>
-            </div>
+           
         </div>
     </body>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
