@@ -30,17 +30,19 @@
 				print $views->errorView($error);
 				exit;
 			}
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 
 			// Note: given order of handling and given processOrderBy doesn't require user to be logged in
 			//...orderBy can be changed without being logged in
 			$this->processOrderBy();
 
 			$this->processLogout();
+=======
+			
+			$this->processOrderBy();
+>>>>>>> master:Team/TasksController.php
 
 			switch($this->action) {
-				case 'login':
-					$this->handleLogin();
-					break;
 				case 'delete':
 					$this->handleDelete();
 					break;
@@ -59,16 +61,18 @@
 				case 'update':
 					$this->handleUpdateTask();
 					break;
-				default:
-					$this->verifyLogin();
+				
 			}
 
 			switch($this->view) {
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 				case 'loginform':
 					print $this->views->loginFormView($this->data, $this->message);
 					break;
+=======
+>>>>>>> master:Team/TasksController.php
 				case 'taskform':
-					print $this->views->taskFormView($this->model->getUser(), $this->data, $this->message);
+					print $this->views->taskFormView($this->data, $this->message);
 					break;
 				default: // 'tasklist'
 					list($orderBy, $orderDirection) = $this->model->getOrdering();
@@ -76,10 +80,11 @@
 					if ($error) {
 						$this->message = $error;
 					}
-					print $this->views->taskListView($this->model->getUser(), $tasks, $orderBy, $orderDirection, $this->message);
+					print $this->views->taskListView($tasks, $orderBy, $orderDirection, $this->message);
 			}
 
 		}
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 
 		private function verifyLogin() {
 			if (! $this->model->getUser()) {
@@ -90,11 +95,15 @@
 			}
 		}
 
+=======
+		
+>>>>>>> master:Team/TasksController.php
 		private function processOrderby() {
 			if ($_GET['orderby']) {
 				$this->model->toggleOrder($_GET['orderby']);
 			}
 		}
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 
 		private function processLogout() {
 			if ($_GET['logout']) {
@@ -119,6 +128,10 @@
 		private function handleDelete() {
 			if (!$this->verifyLogin()) return;
 
+=======
+		
+		private function handleDelete() {
+>>>>>>> master:Team/TasksController.php
 			if ($error = $this->model->deleteTask($_POST['id'])) {
 				$this->message = $error;
 			}
@@ -126,8 +139,11 @@
 		}
 
 		private function handleSetCompletionStatus($status) {
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if (!$this->verifyLogin()) return;
 
+=======
+>>>>>>> master:Team/TasksController.php
 			if ($error = $this->model->updateTaskCompletionStatus($_POST['id'], $status)) {
 				$this->message = $error;
 			}
@@ -135,8 +151,11 @@
 		}
 
 		private function handleAddTask() {
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if (!$this->verifyLogin()) return;
 
+=======
+>>>>>>> master:Team/TasksController.php
 			if ($_POST['cancel']) {
 				$this->view = 'tasklist';
 				return;
@@ -151,8 +170,11 @@
 		}
 
 		private function handleEditTask() {
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if (!$this->verifyLogin()) return;
 
+=======
+>>>>>>> master:Team/TasksController.php
 			list($task, $error) = $this->model->getTask($_POST['id']);
 			if ($error) {
 				$this->message = $error;
@@ -164,8 +186,11 @@
 		}
 
 		private function handleUpdateTask() {
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if (!$this->verifyLogin()) return;
 
+=======
+>>>>>>> master:Team/TasksController.php
 			if ($_POST['cancel']) {
 				$this->view = 'tasklist';
 				return;
@@ -180,5 +205,12 @@
 
 			$this->view = 'tasklist';
 		}
+	
 	}
+<<<<<<< HEAD:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 ?>
+=======
+	
+	
+?>
+>>>>>>> master:Team/TasksController.php
