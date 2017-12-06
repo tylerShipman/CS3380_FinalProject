@@ -219,8 +219,5 @@
 			
 			return $this->error;
 		}
-
-	
 	}
-
 ?>
