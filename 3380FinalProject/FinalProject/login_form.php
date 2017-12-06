@@ -28,7 +28,7 @@
             }
         ?>
         
-        <form action="index.php" method="POST">
+        <form action="index2.php" method="POST">
             
             <input type="hidden" name="action" value="do_login">
             

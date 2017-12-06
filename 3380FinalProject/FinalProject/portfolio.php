@@ -10,7 +10,7 @@
     }
     
     if(!isset($_SESSION['loggedin'])){
-        header("Location: index.php");
+        header("Location: index2.php");
     }
 ?>
 
