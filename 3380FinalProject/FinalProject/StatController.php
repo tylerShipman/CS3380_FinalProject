@@ -33,16 +33,84 @@ class StatController{
             $this->message = $error;
           }
           print count($stats);
+          echo '<br/>';
           foreach($stats as $stat){
-          print($stat['teamSchool']);
-          print($stat['playerNumber']);
-          print($stat['playerLastName']);
-          print($stat['playerFirstName']);
-          print($stat['fouls']);
-          print($stat['freethrow_makes']);
-          print($stat['freethrow_attempts']);
+          print($stat['School']);
+          echo '<br/>';
+          print($stat['#']);
+          echo '<br/>';
+          print($stat['Last']);
+          echo '<br/>';
+          print($stat['First']);
+          echo '<br/>';
+          print($stat['Fouls']);
+          echo '<br/>';
+          print($stat['Freethrow Makes']);
+          echo '<br/>';
+          print($stat['Freethrow Misses']);
+          echo '<br/>';
+          print($stat['3 Point Makes']);
+          echo '<br/>';
+          print($stat['3 Point Misses']);
+          echo '<br/>';
+          print($stat['Freethrow %']);
+          echo '<br/>';
+          print($stat['3 Point %']);
+          echo '<br/>';
           print($stat['stat_entry_id']);
+          echo '<br/>';
+          echo '<br/>';
+
         }
+    list($games, $error) = $this->model->getGameList();
+     if ($error) {
+            $this->message = $error;
+          }
+          print count($games);
+          echo '<br/>';
+          foreach($games as $game){
+            print($game['game_id']);
+            print($game['Game']);
+            print($game['Game Time']);
+            echo '<br/>';
+            echo '<br/>';
+          }
+
+    list($players, $error) = $this->model->getPlayerList(2);
+     if ($error) {
+            $this->message = $error;
+          }
+          print count($players);
+          echo '<br/>';
+          foreach($players as $player){
+            print($player['player_id']);
+            echo '<br/>';
+            print($player['id']);
+            echo '<br/>';
+            print($player['playerFirstName']);
+            echo '<br/>';
+            print($player['playerLastName']);
+            echo '<br/>';
+            print($player['playerNumber']);
+            echo '<br/>';
+            print($player['playerPosition']);
+            echo '<br/>';
+            print($player['playerTeamID']);
+            echo '<br/>';
+            print($player['team_id']);
+            echo '<br/>';
+            print($player['teamSchool']);
+            echo '<br/>';
+            print($player['teamCity']);
+            echo '<br/>';
+            print($player['teamState']);
+
+
+            echo '<br/>';
+            echo '<br/>';
+          }
+
+
 
 
   }
