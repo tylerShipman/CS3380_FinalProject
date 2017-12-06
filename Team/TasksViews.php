@@ -12,18 +12,18 @@
 
 		}
 		
-		public function taskListView($user, $tasks, $orderBy = 'title', $orderDirection = 'asc', $message = '') {
-			$body = "<h1>Tasks for {$user->firstName} {$user->lastName}</h1>\n";
+		public function taskListView($tasks, $orderBy = 'title', $orderDirection = 'asc', $message = '') {
+			$body = "<h1>Tasks</h1>\n";
 		
 			if ($message) {
 				$body .= "<p class='message'>$message</p>\n";
 			}
 		
-			$body .= "<p><a class='taskButton' href='index.php?view=taskform'>+ Add Task</a> <a class='taskButton' href='index.php?logout=1'>Logout</a></p>\n";
+			$body .= "<p><a class='taskButton' href='index.php?view=taskform'>+ Add Task</a></p>\n";
 	
 			if (count($tasks) < 1) {
 				$body .= "<p>No tasks to display!</p>\n";
-				return $this->page($body);
+				return $body;
 			}
 	
 			$body .= "<table>\n";
@@ -77,7 +77,7 @@
 			return $this->page($body);
 		}
 		
-		public function taskFormView($user, $data = null, $message = '') {
+		public function taskFormView($data = null, $message = '') {
 			$category = '';
 			$title = '';
 			$description = '';
@@ -91,22 +91,31 @@
 				$selected['uncategorized'] = 'selected';
 			}
 	
-			$body = "<h1>Tasks for {$user->firstName} {$user->lastName}</h1>\n";
+			$html = <<<EOT1
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task Manager</title>
+<link rel="stylesheet" type="text/css" href="taskmanager.css">
+</head>
+<body>
+<h1>Tasks</h1>
+EOT1;
 
 			if ($message) {
-				$body .= "<p class='message'>$message</p>\n";
+				$html .= "<p class='message'>$message</p>\n";
 			}
 		
-			$body .= "<form action='index.php' method='post'>";
+			$html .= "<form action='index.php' method='post'>";
 		
 			if ($data['id']) {
-				$body .= "<input type='hidden' name='action' value='update' />";
-				$body .= "<input type='hidden' name='id' value='{$data['id']}' />";
+				$html .= "<input type='hidden' name='action' value='update' />";
+				$html .= "<input type='hidden' name='id' value='{$data['id']}' />";
 			} else {
-				$body .= "<input type='hidden' name='action' value='add' />";
+				$html .= "<input type='hidden' name='action' value='add' />";
 			}
 		
-			$body .= <<<EOT2
+			$html .= <<<EOT2
   <p>Category<br />
   <select name="category">
 	  <option value="personal" {$selected['personal']}>personal</option>
@@ -123,39 +132,14 @@
   <textarea name="description" rows="6" cols="80" placeholder="description">$description</textarea></p>
   <input type="submit" name='submit' value="Submit"> <input type="submit" name='cancel' value="Cancel">
 </form>
+</body>
+</html>
 EOT2;
 
-			return $this->page($body);
+			print $html;
 		}
 		
-		
-		public function loginFormView($data = null, $message = '') {
-			$loginID = '';
-			if ($data) {
-				$loginID = $data['loginid'];
-			}
-		
-			$body = "<h1>Tasks</h1>\n";
-			
-			if ($message) {
-				$body .= "<p class='message'>$message</p>\n";
-			}
-			
-			$body .= <<<EOT
-<form action='index.php' method='post'>
-<input type='hidden' name='action' value='login' />
-<p>User ID<br />
-  <input type="text" name="loginid" value="$loginID" placeholder="login id" maxlength="255" size="80"></p>
-<p>Title<br />
-  <input type="password" name="password" value="" placeholder="password" maxlength="255" size="80"></p>
-  <input type="submit" name='submit' value="Login">
-</form>	
-EOT;
-			
-			return $this->page($body);
-		}
-		
-		public function errorView($message) {	
+		public function errorView($message) {
 			$body = "<h1>Tasks</h1>\n";
 			$body .= "<p>$message</p>\n";
 			
