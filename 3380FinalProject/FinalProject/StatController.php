@@ -28,13 +28,20 @@ class StatController{
       exit;
     }
 
-    list($stats, $error) = $this->model->getStatsGame(1);
+    list($stats, $error) = $this->model->getStatsGameFull(1);
           if ($error) {
             $this->message = $error;
           }
           print count($stats);
           foreach($stats as $stat){
-          print($stat);
+          print($stat['teamSchool']);
+          print($stat['playerNumber']);
+          print($stat['playerLastName']);
+          print($stat['playerFirstName']);
+          print($stat['fouls']);
+          print($stat['freethrow_makes']);
+          print($stat['freethrow_attempts']);
+          print($stat['stat_entry_id']);
         }
 
 

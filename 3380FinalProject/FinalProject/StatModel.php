@@ -55,6 +55,7 @@ class StatModel{
   }
 
   //Returns the stats for a given game id
+  //This only returns 1 player
   public function getStatsGame($id){
     $this->error = '';
     $stats = null;
@@ -80,6 +81,43 @@ class StatModel{
     if($result = $this->mysqli->query($sql)) {
       if ($result->num_rows > 0){
           $stats = $result->fetch_assoc();
+      }
+        $result->close();
+    } else{ 
+        $this->error = $this->mysqli->error;
+    }
+    return array($stats, $this->error);    
+
+  }
+
+  //returns all stats for each game
+  public function getStatsGameFull($id){
+    $this->error = '';
+    $stats = array();
+
+    //Are we connected to the database?
+    if(!$this->mysqli){
+      $this->error = "No Connection to database.";
+      return array($stats, $this->error);
+    }
+
+    //Were we given an ID?
+    if(!$id){
+      $this->error = "No game id specifed.";
+      return array($stats, $this->error);
+
+    }
+
+    $gameIDEscaped = $this->mysqli->real_escape_string($id);
+
+    $sql = "SELECT teams.teamSchool , players.playerNumber, players.playerLastName, players.playerFirstName, stats.fouls, stats.freethrow_makes, stats.freethrow_attempts, stats.stat_entry_id FROM teams, games, stats, players WHERE games.game_id = '$gameIDEscaped' AND players.player_id = stats.player_id AND players.playerTeamID = teams.team_id";
+
+    //print($sql);
+    if($result = $this->mysqli->query($sql)) {
+      if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+              array_push($stats, $row);
+          }
       }
         $result->close();
     } else{ 
