@@ -1,6 +1,6 @@
 <?php
-require 'StatController.php';
+require 'PlayerController.php';
 
-$controller = new StatController();
+$controller = new PlayerController();
 $controller->run();
 ?>

@@ -4,7 +4,7 @@ require ('PlayerView.php');
 require ('PlayerModel.php');
 
 //Controller class
-class StatController{
+class PlayerController{
   private $model;
   private $views;
 
