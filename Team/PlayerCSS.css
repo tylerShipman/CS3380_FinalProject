@@ -1,6 +1,6 @@
 body {
 	margin: 10px;
-	background-color: #8ef;
+	background-color: goldenrod;
 	font-family: arial;
 }
 
@@ -14,11 +14,11 @@ th, td {
 }
 
 th {
-	background-color: #6de;
+	background-color: white;
 }
 
 td {
-	background-color: #fff;
+	background-color: white;
 }
 
 a.taskButton:link, a.taskButton:visited, a.taskButton:active {
@@ -34,7 +34,7 @@ a.taskButton:hover {
 	background-color: #5cd;
 }
 
-form {
+form{
 	background-color: #6de;
 	border: 1px solid #4bc;
 	padding: 5px;
