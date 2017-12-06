@@ -9,8 +9,6 @@
     if(!isset($_SESSION['loggedin'])){
         header("Location: index2.php");
     }
-
-
 ?>
 
 <html>
@@ -71,10 +69,10 @@
                 <?php
                 
                  require ('StatModel.php');
-                 private $model;
-                 $this ->model = new StatModel();
+                 $model = new StatModel();
+                 //$this->model = new StatModel();
                  
-                  list($stats, $error) = $this->model->getStatsGameFull(1);
+                list($stats, $error) = model->getStatsGameFull(1);
                  
                  echo "<table border ='1' style='border-collapse: collapse'>";
                     
