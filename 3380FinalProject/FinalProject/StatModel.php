@@ -76,7 +76,17 @@ class StatModel{
 
     $sql = "SELECT teams.teamSchool , players.playerNumber, players.playerLastName, players.playerFirstName, stats.fouls, stats.freethrow_makes, stats.freethrow_attempts, stats.freethrow_makes, stats.freethrow_attempts, stats.stat_entry_id FROM teams, games, stats, players WHERE games.game_id = '$gameIDEscaped' AND players.player_id = stats.player_id AND players.playerTeamID = teams.team_id";
 
-    print($sql);
+    //print($sql);
+    if($result = $this->mysqli->query($sql)) {
+      if ($result->num_rows > 0){
+          $stats = $result->fetch_assoc();
+      }
+        $result->close();
+    } else{ 
+        $this->error = $this->mysqli->error;
+    }
+    return array($stats, $this->error);    
+
   }
 
 }

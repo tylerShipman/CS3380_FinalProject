@@ -28,7 +28,16 @@ class StatController{
       exit;
     }
 
-    $this->model->getStatsGame(1);
+    list($stats, $error) = $this->model->getStatsGame(1);
+          if ($error) {
+            $this->message = $error;
+          }
+          print count($stats);
+          foreach($stats as $stat){
+          print($stat);
+        }
+
+
   }
 
 }
