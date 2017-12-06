@@ -218,7 +218,77 @@ AND teams.team_id = '$gameIDEscaped'";
 
   }
 
+
+
+
+
+//add player to a game
+public function addPlayerToGame($data) {
+      $this->error = '';
+      
+      
+      $game_id=$data['game_id'];
+      $player_id=$data['player_id'];
+      
+      if (! $game_id) {
+        $this->error = "No game_id found for task to add. A game_id is required.";
+        return $this->error;      
+      }
+      
+      if (! $player_id) {
+        $category = '';
+      }
+      
+      $game_idEscaped = $this->mysqli->real_escape_string($game_id);    
+      $player_idEscaped = $this->mysqli->real_escape_string($player_id);
+
+
+      $sql = "INSERT INTO stats(game_id, player_id) VALUES ('$game_idEscaped', '$player_idEscaped')";
+  
+      if (! $result = $this->mysqli->query($sql)) {
+        $this->error = $this->mysqli->error;
+      }
+      
+      return $this->error;
+    }
+
+
+//This needs editing
+    public function updatePlayerStats($data) {
+      $this->error = '';
+      
+      
+      if (! $this->mysqli) {
+        $this->error = "No connection to database. Unable to update task.";
+        return $this->error;
+      }
+      
+      $id = $data['id'];
+      if (! $id) {
+        $this->error = "No id specified for task to update.";
+        return $this->error;      
+      }
+      
+      $title = $data['title'];
+      if (! $title) {
+        $this->error = "No title found for task to update. A title is required.";
+        return $this->error;      
+      }   
+      
+      $description = $data['description'];
+      $category = $data['category'];
+      
+      $idEscaped = $this->mysqli->real_escape_string($id);
+      $titleEscaped = $this->mysqli->real_escape_string($title);
+      $descriptionEscaped = $this->mysqli->real_escape_string($description);
+      $categoryEscaped = $this->mysqli->real_escape_string($category);
+      $userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
+      $sql = "UPDATE tasks SET title='$titleEscaped', description='$descriptionEscaped', category='$categoryEscaped' WHERE userID = $userIDEscaped AND id = $idEscaped";
+      if (! $result = $this->mysqli->query($sql) ) {
+        $this->error = $this->mysqli->error;
+      } 
+      
+      return $this->error;
+    }
 }
-
-
 ?>
