@@ -53,17 +53,23 @@
 
             <div class="accordgrid">
         <div id="accordion">
-            <h3>Missouri Tigers VS Utah Utes </h3>
+            <h3>Missouri Tigers VS Utah Utes</h3>
             <div>
-                <p> <a href="contact.php">Edit Game Stats</a></p>
+                <p>
+                    November 16, 2017 at 8:30pm<br><br>
+                    <a href="contact.php">Edit Game Stats</a></p>
             </div>
             <h3>Texas A&amp;M VS Missouri Tigers </h3>
             <div>
-                <p> <a href="contact.php">Edit Game Stats</a> </p>
+                <p>
+                    January 20, 2018 at 3:00pm<br><br>
+                    <a href="contact.php">Edit Game Stats</a> </p>
             </div>
             <h3>Texas A&amp;M VS Utah Utes </h3>
             <div>
-                <p><a href="contact.php">Edit Game Stats</a></p>
+                <p>
+                    Feburary 20, 2018 at 8:00pm<br><br>
+                    <a href="contact.php">Edit Game Stats</a></p>
             </div>
         </div>
             </div>

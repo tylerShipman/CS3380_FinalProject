@@ -1,9 +1,6 @@
-<!-- Luke Strege
-	14206751
-    12/6/16
-	-->
 <?php
-    
+
+
     if(!session_start()){
         header("Location: home.php");
         exit;
@@ -12,6 +9,8 @@
     if(!isset($_SESSION['loggedin'])){
         header("Location: index2.php");
     }
+
+
 ?>
 
 <html>
@@ -49,15 +48,18 @@
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
 
-                    echo "<th> Player  </th>";
-                    echo "<th> Number  </th>";
+                    echo "<th> School </th>";
+                    echo "<th> Team ID </th>";
+                    echo "<th> Player </th>";
+                    echo "<th> Number </th>";
+                    echo "<th> Position </th>";
                     echo "<th> Fouls</th>";
                     echo "<th> Freethrow %</th>";
                     echo "<th> 3 point %</th>";
 
                     for ($row=1; $row <= 3; $row++) { 
                             echo "<tr>";
-                            for ($col=1; $col <= 5; $col++) { 
+                            for ($col=1; $col <= 8; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
                              echo "</tr>";
@@ -67,21 +69,39 @@
             </div>
              <div class="tables">
                 <?php
-                    echo "<table border ='1' style='border-collapse: collapse'>";
-
-                    echo "<th> Player  </th>";
-                    echo "<th> Number  </th>";
+                
+                 require ('StatModel.php');
+                 private $model;
+                 $this ->model = new StatModel();
+                 
+                  list($stats, $error) = $this->model->getStatsGameFull(1);
+                 
+                 echo "<table border ='1' style='border-collapse: collapse'>";
+                    
+                    echo "<th> School </th>";
+                    echo "<th> Team ID </th>";
+                    echo "<th> Player </th>";
+                    echo "<th> Number </th>";
+                    echo "<th> Position </th>";
                     echo "<th> Fouls</th>";
                     echo "<th> Freethrow %</th>";
                     echo "<th> 3 point %</th>";
-
-                    for ($row=1; $row <= 3; $row++) { 
-                            echo "<tr>";
-                            for ($col=1; $col <= 5; $col++) { 
-                               echo "<td>Team $col</td>";
-                                }
-                             echo "</tr>";
-                            }
+                
+                 foreach ($stats as $stat)
+                 {
+                     $school = $stat['School'];
+                     $playerF = $stat['First'];
+                     $playerL = $stat['Last'];
+                     $fouls = $stat['Fouls'];
+                     $freethrow = $stat['Freethrow %'];
+                     $threepoint = $stat['3 Point %'];
+                     
+                     echo "<td>$school</td>";
+                     echo "<td>$playerF $playerL</td>";
+                     echo "<td> $fouls </td>";
+                     echo "<td>$freethrow</td>";
+                     echo "<td>$threepoint</td>";
+                 }
                             echo "</table><br>";
                 ?>
             </div>
@@ -89,14 +109,18 @@
                 <?php
                     echo "<table border ='1' style='border-collapse: collapse'>";
                  
-                    echo "<th> Player  </th>";
-                    echo "<th> Number  </th>";
+                   echo "<th> School </th>";
+                    echo "<th> Team ID </th>";
+                    echo "<th> Player </th>";
+                    echo "<th> Number </th>";
+                    echo "<th> Position </th>";
                     echo "<th> Fouls</th>";
                     echo "<th> Freethrow %</th>";
                     echo "<th> 3 point %</th>";
+
                     for ($row=1; $row <= 3; $row++) { 
                             echo "<tr>";
-                            for ($col=1; $col <= 5; $col++) { 
+                            for ($col=1; $col <= 8; $col++) { 
                                echo "<td>Team $col</td>";
                                 }
                              echo "</tr>";
