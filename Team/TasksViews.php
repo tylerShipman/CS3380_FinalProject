@@ -25,7 +25,7 @@
 				$body .= "<p>No tasks to display!</p>\n";
 				return $body;
 			}
-	
+            
 			$body .= "<table>\n";
 			$body .= "<tr><th>delete</th><th>edit</th><th>completed</th>";
 		
