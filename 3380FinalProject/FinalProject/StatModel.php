@@ -54,31 +54,82 @@ class StatModel{
     $_SESSION['orderdirection'] = $this->orderDirection;
   }
 
-  //Returns the stats for a given game id
-  public function getStatsGame($id){
+
+
+
+
+  public function getPlayerList($id){
     $this->error = '';
-    $stats = null;
+    $players = array();
 
     //Are we connected to the database?
     if(!$this->mysqli){
       $this->error = "No Connection to database.";
-      return array($stats, $this->error);
+      return array($players, $this->error);
     }
 
-    //Were we given an ID?
     if(!$id){
       $this->error = "No game id specifed.";
-      return array($stats, $this->error);
+      return array($players, $this->error);
 
     }
 
     $gameIDEscaped = $this->mysqli->real_escape_string($id);
 
-    $sql = "SELECT teams.teamSchool , players.playerNumber, players.playerLastName, players.playerFirstName, stats.fouls, stats.freethrow_makes, stats.freethrow_attempts, stats.freethrow_makes, stats.freethrow_attempts, stats.stat_entry_id FROM teams, games, stats, players WHERE games.game_id = '$gameIDEscaped' AND players.player_id = stats.player_id AND players.playerTeamID = teams.team_id";
 
-    print($sql);
+    $sql = "SELECT * 
+            FROM players, teams
+            WHERE players.playerTeamID = teams.team_id
+            AND teams.teamSchool = '$gameIDEscaped'";
+
+    //print($sql);
+    if($result = $this->mysqli->query($sql)) {
+      if ($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+              array_push($players, $row);
+          }
+      }
+        $result->close();
+    } else{ 
+        $this->error = $this->mysqli->error;
+    }
+    return array($players, $this->error);    
+
   }
 
-}
+    public function addPlayer($data) {
+      $this->error = '';
+      
+      
+      $firstName = $data['playerFirstName'];
+      $lastName = $data['playerLastName'];
+      $number = $data['playerNumber'];
+      $position = $data['playerPosition'];
+      $playerTeamID = $data['playerTeamID'];
+      
+      if (! $firstName) {
+        $this->error = "No title found for task to add. A title is required.";
+        return $this->error;      
+      }
+      
+      if (! $) {
+        $category = 'uncategorized';
+      }
+      
+      $titleEscaped = $this->mysqli->real_escape_string($title);    
+      $categoryEscaped = $this->mysqli->real_escape_string($category);
+      $descriptionEscaped = $this->mysqli->real_escape_string($description);
+      $userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
 
- ?>
+      $sql = "INSERT INTO tasks (title, description, category, addDate, userID) VALUES ('$titleEscaped', '$descriptionEscaped', '$categoryEscaped', NOW(), $userIDEscaped)";
+  
+      if (! $result = $this->mysqli->query($sql)) {
+        $this->error = $this->mysqli->error;
+      }
+      
+      return $this->error;
+    }
+
+
+}
+?>
