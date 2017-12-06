@@ -19,21 +19,43 @@
     margin: 0px auto;
 }
 
-.game{
-    text-align: center;
-    font-size: 20pt;
-    font-family: fantasy;
-}
-
 .contact h1 {
     text-align: center;
 }
 
 .tables{
     border-collapse: collapse;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+}
+.tables2{
+    border-collapse: collapse;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+}
+.tables3{
+    border-collapse: collapse;
+    height: 50px;
+    width: 50px;
+    background-color:white; 
 }
 
-.tables th, .tables td{
+.table th{
+    height: 100px;
+    margin: 20px;
+    padding:20px;
+    text-align: center;
+    font-size: 20pt;
+    border: 3px solid goldenrod;
+    font-family: sans-serif;
+    background-color: dimgray;
+    align-content: center;
+}
+
+.tables td{
+    width: 50px;
     margin: 20px;
     padding:20px;
     text-align: center;
@@ -45,6 +67,7 @@
 }
 
 .tables tr{
+    height: 50px;
     margin: 20px;
     padding: 10px;
     font-size: 20px;

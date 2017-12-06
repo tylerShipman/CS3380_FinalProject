@@ -35,6 +35,9 @@
             font-size: 30px;
             font-family: fantasy;
         }
+        h3{
+            color: white;
+        }
     </style>
     
 </head>
@@ -50,24 +53,105 @@
         </div>
 
             <h1>Team Editor</h1>
-
-            <div class="accordgrid">
-        <div id="accordion">
+        <table align="left" bgcolor=#FFFFF>
             <h3>Utah Utes</h3>
-            <div>
+                <div class="tables">
+                <?php
                 
-            </div>
-            <h3>Missouri Tigers </h3>
-            <div>
+                 require ('StatModel.php');
+                // private $model;
+                 $model = new StatModel();
+                 
+                list($stats, $error) = $model->getPlayerList('Utah Utes');
+                 
+                 echo "<table border ='1' style='border-collapse: collapse'>";  
+                    echo "<th> Player</th>";
+                    echo "<th> Number</th>";
+                    echo "<th> Position</th>";
+                    
+                    
+                 foreach ($stats as $stat)
+                 {
+                     $playerF = $stat['playerFirstName'];
+                     $playerL = $stat['playerLastName'];
+                     $number = $stat['playerNumber'];
+                     $position = $stat['playerPosition'];
+                     
+                     echo "<tr>";
+                     echo "<td>$playerF $playerL</td>";
+                     echo "<td> $number</td>";
+                     echo "<td> $position</td>";
+                     echo "</tr>";
+                    }
+                 ?>
+                </div>
+            </table>
+        <table align="center" bgcolor=#FFFFF>
+                <div class="tables2">
+                    <h1>Missouri Tigers</h1>
+                <?php
                 
+                 require ('StatModel.php');
+                // private $model;
+                 $model = new StatModel();
+                 
+                list($stats, $error) = $model->getPlayerList('Missouri Tigers');
+                 
+                 echo "<table border ='1' style='border-collapse: collapse'>";  
+                    echo "<th> Player</th>";
+                    echo "<th> Number</th>";
+                    echo "<th> Position</th>";
+                    
+                 foreach ($stats as $stat)
+                 {
+                     $playerF = $stat['playerFirstName'];
+                     $playerL = $stat['playerLastName'];
+                     $number = $stat['playerNumber'];
+                     $position = $stat['playerPosition'];
+                     
+                     echo "<tr>";
+                     echo "<td>$playerF $playerL</td>";
+                     echo "<td> $number</td>";
+                     echo "<td> $position</td>";
+                    echo "</tr>";
+                 }
+                 ?>
+                </div>
+            </table>
+        <table align="right" bgcolor=#FFFFF>
+                 <div class="tables3">
+                    <h1>Texas A&amp;M Aggies</h1>
+                <?php
+                
+                 require ('StatModel.php');
+                // private $model;
+                 $model = new StatModel();
+                 
+                list($stats, $error) = $model->getPlayerList('Texas A&M');
+                 
+                 echo "<table border ='1' style='border-collapse: collapse'>";  
+                    echo "<th> Player</th>";
+                    echo "<th> Number</th>";
+                    echo "<th> Position</th>";
+                    
+                    
+                 foreach ($stats as $stat)
+                 {
+                     $playerF = $stat['playerFirstName'];
+                     $playerL = $stat['playerLastName'];
+                     $number = $stat['playerNumber'];
+                     $position = $stat['playerPosition'];
+                     
+                     echo "<tr>";
+                     echo "<td>$playerF $playerL</td>";
+                     echo "<td> $number</td>";
+                     echo "<td> $position</td>";
+                    echo "</tr>";
+                 }
+                 ?>
+                </div>
+    </table>
             </div>
-            <h3>Texas A&amp;M</h3>
-            <div>
-               
-            </div>
-        </div>
-            </div>
-        </div>
 </body>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
