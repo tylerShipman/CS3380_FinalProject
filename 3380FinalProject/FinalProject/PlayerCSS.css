@@ -21,7 +21,7 @@ td {
 	background-color: #fff;
 }
 
-a.taskButton:link, a.taskButton:visited, a.taskButton:active {
+a.playerButton:link, a.playerButton:visited, a.playerButton:active {
 	color: black;
 	font-size: 1.2em;
 	text-decoration: none;
@@ -30,7 +30,7 @@ a.taskButton:link, a.taskButton:visited, a.taskButton:active {
 	border: 1px solid #4bc;
 }
 
-a.taskButton:hover {
+a.playerButton:hover {
 	background-color: #5cd;
 }
 
