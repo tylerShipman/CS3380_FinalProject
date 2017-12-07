@@ -1,12 +1,7 @@
 body {
 	margin: 10px;
-	background-color: #8ef;
+	background-color: #000;
 	font-family: arial;
-}
-
-h1{
-    text-align: center;
-    font-family: cursive;
 }
 
 table, th, td {
@@ -14,34 +9,40 @@ table, th, td {
 	border-collapse: collapse;
 }
 
+h3{
+    text-align: center;
+    color: goldenrod;
+    font-size: 100px;
+}
+
 th, td {
 	padding: 4px;
 }
 
 th {
-	background-color: #6de;
+	background-color: goldenrod;
 }
 
 td {
-	background-color: #fff;
+	background-color: goldenrod;
 }
 
-a.taskButton:link, a.taskButton:visited, a.taskButton:active {
+a.playerButton:link, a.playerButton:visited, a.playerButton:active {
 	color: black;
 	font-size: 1.2em;
 	text-decoration: none;
-	background-color: #6de;
+	background-color: goldenrod;
 	padding: 5px;
-	border: 1px solid #4bc;
+	border: 1px solid white;
 }
 
-a.taskButton:hover {
+a.playerButton:hover {
 	background-color: #5cd;
 }
 
 form {
-	background-color: #6de;
-	border: 1px solid #4bc;
+	background-color: goldenrod;
+	border: 1px solid goldenrod;
 	padding: 5px;
 }
 

@@ -13,13 +13,13 @@
 		}
 		
 		public function playerListView($players, $orderBy = 'playerFirstName', $orderDirection = 'asc', $message = '') {
-			$body = "<h1 style = text-align:center; >Player Manager</h1>\n";
+			$body = "<h3>Player Manager</h3>\n";
 		
 			if ($message) {
 				$body .= "<p class='message'>$message</p>\n";
 			}
 		
-			$body .= "<p><a class='playerButton' href='index.php?view=playerform'>+ Add player</a></p>\n";
+			$body .= "<p style = text-align:center><a class='playerButton' href='index.php?view=playerform'>+ Add player</a></p>\n";
 	
 			if (count($players) < 1) {
 				$body .= "<p>No players to display!</p>\n";
