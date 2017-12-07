@@ -15,8 +15,8 @@ class PlayerController{
   private $data = array();
 
   public function __construct(){
-    $this->model = new StatModel();
-    $this->view = new StatView();
+    $this->model = new PlayerModel();
+    $this->view = new PlayerView();
 
       $this->view = $_GET['view'] ? $_GET['view'] : 'Statlist';
       $this->action = $_POST['action'];  }
@@ -49,12 +49,14 @@ class PlayerController{
           break;
       }
 
+      switch($this->view){
         case 'playerform':
           print $this->views->playerFormView($this->data, $this->message);
           break;
         default: // playerlist
           list($orderBy, $orderDirection) = $this->model->getOrdering();
           list($players, $error) = $this->model->getPlayers();
+
           if ($error) {
             $this->message = $error;
           }

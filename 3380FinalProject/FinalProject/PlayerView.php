@@ -12,7 +12,7 @@
 
 		}
 		
-		public function PlayerListView($players, $orderBy = 'firstName', $orderDirection = 'asc', $message = '') {
+		public function playerListView($players, $orderBy = 'playerfirstName', $orderDirection = 'asc', $message = '') {
 			$body = "<h1>Players</h1>\n";
 		
 			if ($message) {
@@ -61,7 +61,7 @@
 
 				$id = $player['player_id'];
 				$firstName = $player['playerFirstName'];
-				$lastName = ($player['playerLastName'];
+				$lastName = $player['playerLastName'];
 				$position = $player['playerPosition'];
 				$number = $player['playerNumber'];
 				$school = $player['teamSchool'];

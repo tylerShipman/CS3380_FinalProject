@@ -3,8 +3,8 @@
 class PlayerModel{
   private $error = '';
   private $mysqli;
-  private $orderBy;
-  private $orderDirection;
+  private $orderBy = 'playerFirstName';
+  private $orderDirection = 'asc';
 
   public function __construct(){
     session_start();
@@ -86,6 +86,7 @@ public function getPlayers() {
       } else {
         $this->error = $mysqli->error;
       }
+
       
       return array($players, $this->error);
     }
