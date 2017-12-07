@@ -16,7 +16,7 @@ class PlayerController{
 
   public function __construct(){
     $this->model = new PlayerModel();
-    $this->view = new PlayerView();
+    $this->views = new PlayerView();
 
       $this->view = $_GET['view'] ? $_GET['view'] : 'Statlist';
       $this->action = $_POST['action'];  }

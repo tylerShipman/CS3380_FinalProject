@@ -12,7 +12,7 @@
 
 		}
 		
-		public function playerListView($players, $orderBy = 'playerfirstName', $orderDirection = 'asc', $message = '') {
+		public function playerListView($players, $orderBy = 'playerFirstName', $orderDirection = 'asc', $message = '') {
 			$body = "<h1>Players</h1>\n";
 		
 			if ($message) {
