@@ -109,7 +109,7 @@ public function getPlayers() {
       
       $idEscaped = $this->mysqli->real_escape_string($id);
     
-      $sql = "SELECT * FROM players WHERE id = '$idEscaped'";
+      $sql = "SELECT * FROM players WHERE player_id = '$idEscaped'";
       if ($result = $this->mysqli->query($sql)) {
         if ($result->num_rows > 0) {
           $player = $result->fetch_assoc();
@@ -160,11 +160,16 @@ public function getPlayers() {
       $firstNameEscaped = $this->mysqli->real_escape_string($firstName);    
       $lastNameEscaped = $this->mysqli->real_escape_string($lastName);
       $numberEscaped = $this->mysqli->real_escape_string($number);
-      $postiionEscaped = $this->mysqli->real_escape_string($position);
+      $positionEscaped = $this->mysqli->real_escape_string($position);
       $playerTeamIDEscaped = $this->mysqli->real_escape_string($playerTeamID);
 
+      // print($firstNameEscaped);
+      // print($lastNameEscaped);
+      // print($numberEscaped);
+      //print($positionEscaped);
+      // print($playerTeamIDEscaped);
 
-      $sql = "INSERT INTO players (playerFirstName, playerLastName, playerNumber, playerNumber, playerTeamID) VALUES ('$firstNameEscaped', '$lastNameEscaped', '$numberEscaped', NOW(), '$positionEscaped', '$playerTeamIDEscaped')";
+      $sql = "INSERT INTO players (playerFirstName, playerLastName, playerNumber, playerPosition, playerTeamID) VALUES ('$firstNameEscaped', '$lastNameEscaped', '$numberEscaped', '$positionEscaped', '$playerTeamIDEscaped')";
   
       if (! $result = $this->mysqli->query($sql)) {
         $this->error = $this->mysqli->error;
@@ -183,7 +188,6 @@ public function getPlayers() {
       $number = $data['playerNumber'];
       $position = $data['playerPosition'];
       $playerTeamID =$data['playerTeamID'];
-      
       if (! $firstName) {
         $this->error = "No first name found for player to add. A first name is required.";
         return $this->error;      
@@ -215,12 +219,12 @@ public function getPlayers() {
       $firstNameEscaped = $this->mysqli->real_escape_string($firstName);    
       $lastNameEscaped = $this->mysqli->real_escape_string($lastName);
       $numberEscaped = $this->mysqli->real_escape_string($number);
-      $postiionEscaped = $this->mysqli->real_escape_string($position);
+      $positionEscaped = $this->mysqli->real_escape_string($position);
       $playerTeamIDEscpaed = $this->mysqli->real_escape_string($playerTeamID);
       $idEscaped = $this->mysqli->real_escape_string($id);
 
 
-      $sql = "UPDATE players SET playerfirstName='$firstNameEscaped', playerlastName='$lastNameEscaped', playerNumber='$numberEscaped', playerTeamID='$playerTeamIDEscpaed'  WHERE player_id = $idEscaped";
+      $sql = "UPDATE players SET playerfirstName='$firstNameEscaped', playerlastName='$lastNameEscaped', playerNumber='$numberEscaped', playerPosition='$positionEscaped', playerTeamID='$playerTeamIDEscpaed'  WHERE player_id = $idEscaped";
       if (! $result = $this->mysqli->query($sql) ) {
         $this->error = $this->mysqli->error;
       } 

@@ -104,6 +104,8 @@
       $playerNumber = $data['playerNumber'];
       $playerPosition = $data['playerPosition'];
       $playerTeamID =$data['playerTeamID'];
+      $selected[$playerTeamID] = 'selected';
+
 			} else {
 				// $selected['uncategorized'] = 'selected';
 			}
@@ -127,7 +129,7 @@ EOT1;
 		
 			if ($data['player_id']) {
 				$html .= "<input type='hidden' name='action' value='update' />";
-				$html .= "<input type='hidden' name='id' value='{$data['player_id']}' />";
+				$html .= "<input type='hidden' name='player_id' value='{$data['player_id']}' />";
 				//mabye change name='id'
 			} else {
 				$html .= "<input type='hidden' name='action' value='add' />";
