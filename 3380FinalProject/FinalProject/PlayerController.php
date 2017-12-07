@@ -49,16 +49,16 @@ class PlayerController{
           break;
       }
 
-        case 'taskform':
-          print $this->views->taskFormView($this->data, $this->message);
+        case 'playerform':
+          print $this->views->playerFormView($this->data, $this->message);
           break;
-        default: // 'tasklist'
+        default: // playerlist
           list($orderBy, $orderDirection) = $this->model->getOrdering();
-          list($tasks, $error) = $this->model->getTasks();
+          list($players, $error) = $this->model->getPlayers();
           if ($error) {
             $this->message = $error;
           }
-          print $this->views->taskListView($tasks, $orderBy, $orderDirection, $this->message);
+          print $this->views->playerListView($players, $orderBy, $orderDirection, $this->message);
       }
 
   }
@@ -70,51 +70,51 @@ class PlayerController{
     }
     
     private function handleDelete() {
-      if ($error = $this->model->deleteTask($_POST['id'])) {
+      if ($error = $this->model->deletePlayer($_POST['id'])) {
         $this->message = $error;
       }
       $this->view = 'playerlist';
     }
     
-    private function handleAddTask() {
+    private function handleAddPlayer() {
       if ($_POST['cancel']) {
-        $this->view = 'tasklist';
+        $this->view = 'playerlist';
         return;
       }
       
-      $error = $this->model->addTask($_POST);
+      $error = $this->model->addPlayer($_POST);
       if ($error) {
         $this->message = $error;
-        $this->view = 'taskform';
+        $this->view = 'playerform';
         $this->data = $_POST;
       }
     }
     
-    private function handleEditTask() {
-      list($task, $error) = $this->model->getTask($_POST['id']);
+    private function handleEditPlayer() {
+      list($player, $error) = $this->model->getPlayer($_POST['id']);
       if ($error) {
         $this->message = $error;
-        $this->view = 'tasklist';
+        $this->view = 'playerlist';
         return;
       }
-      $this->data = $task;
-      $this->view = 'taskform';
+      $this->data = $player;
+      $this->view = 'playerform';
     }
     
-    private function handleUpdateTask() {
+    private function handleUpdatePlayer() {
       if ($_POST['cancel']) {
-        $this->view = 'tasklist';
+        $this->view = 'playerlist';
         return;
       }
       
-      if ($error = $this->model->updateTask($_POST)) {
+      if ($error = $this->model->updatePlayer($_POST)) {
         $this->message = $error;
-        $this->view = 'taskform';
+        $this->view = 'playerform';
         $this->data = $_POST;
         return;
       }
       
-      $this->view = 'tasklist';
+      $this->view = 'playerlist';
     }
 
 
