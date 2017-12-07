@@ -86,17 +86,20 @@
 		}
 		
 		public function taskFormView($data = null, $message = '') {
-			$category = '';
-			$title = '';
-			$description = '';
-			$selected = array('personal' => '', 'school' => '', 'work' => '', 'uncategorized' => '');
+			$playerTeamID = '';
+			$firstName = '';
+			$lastName = '';
+			$position = '';
+			$number = '';
+			$selected = array('1' => '', '2' => '', '3' => '');
 			if ($data) {
-				$category = $data['category'] ? $data['category'] : 'uncategorized';
-				$title = $data['title'];
-				$description = $data['description'];
-				$selected[$category] = 'selected';
+      $firstName = $data['playerFirstName'];
+      $lastName = $data['playerLastName'];
+      $number = $data['playerNumber'];
+      $position = $data['playerPosition'];
+      $playerTeamID =$data['playerTeamID'];
 			} else {
-				$selected['uncategorized'] = 'selected';
+				// $selected['uncategorized'] = 'selected';
 			}
 	
 			$html = <<<EOT1
@@ -107,7 +110,7 @@
 <link rel="stylesheet" type="text/css" href="taskmanager.css">
 </head>
 <body>
-<h1>Tasks</h1>
+<h1>Players</h1>
 EOT1;
 
 			if ($message) {
@@ -116,28 +119,36 @@ EOT1;
 		
 			$html .= "<form action='index.php' method='post'>";
 		
-			if ($data['id']) {
+			if ($data['player_id']) {
 				$html .= "<input type='hidden' name='action' value='update' />";
-				$html .= "<input type='hidden' name='id' value='{$data['id']}' />";
+				$html .= "<input type='hidden' name='id' value='{$data['player_id']}' />";
+				//mabye change name='id'
 			} else {
 				$html .= "<input type='hidden' name='action' value='add' />";
 			}
+			//LOOK HERE
 		
 			$html .= <<<EOT2
   <p>Category<br />
-  <select name="category">
-	  <option value="personal" {$selected['personal']}>personal</option>
-	  <option value="school" {$selected['school']}>school</option>
-	  <option value="work" {$selected['work']}>work</option>
-	  <option value="uncategorized" {$selected['uncategorized']}>uncategorized</option>
+  <select name="playerTeamID">
+	  <option value="1" {$selected['1']}>Texas A&M</option>
+	  <option value="2" {$selected['2']}>Missouri Tigers</option>
+	  <option value="3" {$selected['3']}>Utah Utes</option>
   </select>
   </p>
 
-  <p>Title<br />
-  <input type="text" name="title" value="$title" placeholder="title" maxlength="255" size="80"></p>
+  <p>Player First Name<br />
+  <input type="text" name="firstName" value="$firstName" placeholder="firstName" maxlength="255" size="80"></p>
 
-  <p>Description<br />
-  <textarea name="description" rows="6" cols="80" placeholder="description">$description</textarea></p>
+  <p>Player Last Name<br />
+  <input type="text" name="lastName" value="$lastName" placeholder="lastName" maxlength="255" size="80"></p>
+
+  <p>Number<br />
+  <input type="text" name="number" value="$number" placeholder="number" maxlength="255" size="80"></p>
+
+  <p>Position<br />
+  <input type="text" name="position" value="$position" placeholder="position" maxlength="255" size="80"></p>
+
   <input type="submit" name='submit' value="Submit"> <input type="submit" name='cancel' value="Cancel">
 </form>
 </body>
@@ -148,7 +159,7 @@ EOT2;
 		}
 		
 		public function errorView($message) {
-			$body = "<h1>Tasks</h1>\n";
+			$body = "<h1>Players</h1>\n";
 			$body .= "<p>$message</p>\n";
 			
 			return $this->page($body);
@@ -164,7 +175,7 @@ EOT2;
 </head>
 <body>
 $body
-<p>&copy; 2017 Dale Musser. All rights reserved.</p>
+<p>CS3380 Final Project</p>
 </body>
 </html>
 EOT;
