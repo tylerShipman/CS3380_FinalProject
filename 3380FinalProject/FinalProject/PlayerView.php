@@ -98,6 +98,8 @@
 			$playerPosition = '';
 			$playerNumber = '';
 			$selected = array('1' => '', '2' => '', '3' => '');
+			$selected2 = array('Guard' => '', 'Forward' => '', 'Center' => '');
+
 			if ($data) {
       $playerFirstName = $data['playerFirstName'];
       $playerLastName = $data['playerLastName'];
@@ -105,6 +107,8 @@
       $playerPosition = $data['playerPosition'];
       $playerTeamID =$data['playerTeamID'];
       $selected[$playerTeamID] = 'selected';
+      $selected2[$playerPosition] = 'selected';
+
 
 			} else {
 				// $selected['uncategorized'] = 'selected';
@@ -145,6 +149,14 @@ EOT1;
   </select>
   </p>
 
+  <p>Team<br />
+  <select name="playerPosition">
+	  <option value="Guard" {$selected2['Guard']}>Guard</option>
+	  <option value="Forward" {$selected2['Forward']}>Forward</option>
+	  <option value="Center" {$selected2['Center']}>Center</option>
+  </select>
+  </p>
+
   <p>Player First Name<br />
   <input type="text" name="playerFirstName" value="$playerFirstName" placeholder="First Name" maxlength="255" size="80"></p>
 
@@ -153,9 +165,6 @@ EOT1;
 
   <p>Number<br />
   <input type="text" name="playerNumber" value="$playerNumber" placeholder="Number" maxlength="255" size="80"></p>
-
-  <p>Position<br />
-  <input type="text" name="playerPosition" value="$playerPosition" placeholder="Position" maxlength="255" size="80"></p>
 
   <input type="submit" name='submit' value="Submit"> <input type="submit" name='cancel' value="Cancel">
 </form>
