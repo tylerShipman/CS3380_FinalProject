@@ -85,18 +85,24 @@
 			return $this->page($body);
 		}
 		
-		public function taskFormView($data = null, $message = '') {
+		public function playerFormView($data = null, $message = '') {
+			// $playerTeamID = '';
+			// $firstName = '';
+			// $lastName = '';
+			// $position = '';
+			// $number = '';
+			// $selected = array('1' => '', '2' => '', '3' => '');
 			$playerTeamID = '';
-			$firstName = '';
-			$lastName = '';
-			$position = '';
-			$number = '';
+			$playerFirstName = '';
+			$playerLastName = '';
+			$playerPosition = '';
+			$playerNumber = '';
 			$selected = array('1' => '', '2' => '', '3' => '');
 			if ($data) {
-      $firstName = $data['playerFirstName'];
-      $lastName = $data['playerLastName'];
-      $number = $data['playerNumber'];
-      $position = $data['playerPosition'];
+      $playerFirstName = $data['playerFirstName'];
+      $playerLastName = $data['playerLastName'];
+      $playerNumber = $data['playerNumber'];
+      $playerPosition = $data['playerPosition'];
       $playerTeamID =$data['playerTeamID'];
 			} else {
 				// $selected['uncategorized'] = 'selected';
@@ -129,7 +135,7 @@ EOT1;
 			//LOOK HERE
 		
 			$html .= <<<EOT2
-  <p>Category<br />
+  <p>Team<br />
   <select name="playerTeamID">
 	  <option value="1" {$selected['1']}>Texas A&M</option>
 	  <option value="2" {$selected['2']}>Missouri Tigers</option>
@@ -138,16 +144,16 @@ EOT1;
   </p>
 
   <p>Player First Name<br />
-  <input type="text" name="firstName" value="$firstName" placeholder="firstName" maxlength="255" size="80"></p>
+  <input type="text" name="playerFirstName" value="$playerFirstName" placeholder="First Name" maxlength="255" size="80"></p>
 
   <p>Player Last Name<br />
-  <input type="text" name="lastName" value="$lastName" placeholder="lastName" maxlength="255" size="80"></p>
+  <input type="text" name="playerLastName" value="$playerLastName" placeholder="Last Name" maxlength="255" size="80"></p>
 
   <p>Number<br />
-  <input type="text" name="number" value="$number" placeholder="number" maxlength="255" size="80"></p>
+  <input type="text" name="playerNumber" value="$playerNumber" placeholder="Number" maxlength="255" size="80"></p>
 
   <p>Position<br />
-  <input type="text" name="position" value="$position" placeholder="position" maxlength="255" size="80"></p>
+  <input type="text" name="playerPosition" value="$playerPosition" placeholder="Position" maxlength="255" size="80"></p>
 
   <input type="submit" name='submit' value="Submit"> <input type="submit" name='cancel' value="Cancel">
 </form>
