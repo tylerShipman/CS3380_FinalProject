@@ -13,7 +13,7 @@
 		}
 		
 		public function playerListView($players, $orderBy = 'playerFirstName', $orderDirection = 'asc', $message = '') {
-			$body = "<h1>Players</h1>\n";
+			$body = "<h1 style = text-align:center; >Player Manager</h1>\n";
 		
 			if ($message) {
 				$body .= "<p class='message'>$message</p>\n";
@@ -26,7 +26,7 @@
 				return $body;
 			}
 	
-			$body .= "<table>\n";
+			$body .= "<table align=center>\n";
 			//$body .= "<tr><th>delete</th><th>edit</th><th>completed</th>";
 			$body .= "<tr><th>delete</th><th>edit</th>";
 		
