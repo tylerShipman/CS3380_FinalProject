@@ -30,17 +30,9 @@
 				print $views->errorView($error);
 				exit;
 			}
-<<<<<<< HEAD:Team/TasksController.php
-			
-			$this->processOrderBy();
-=======
 
-			// Note: given order of handling and given processOrderBy doesn't require user to be logged in
-			//...orderBy can be changed without being logged in
 			$this->processOrderBy();
 
-			$this->processLogout();
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 
 			switch($this->action) {
 				case 'delete':
@@ -61,16 +53,11 @@
 				case 'update':
 					$this->handleUpdateTask();
 					break;
-				
+
 			}
 
 			switch($this->view) {
-<<<<<<< HEAD:Team/TasksController.php
-=======
-				case 'loginform':
-					print $this->views->loginFormView($this->data, $this->message);
-					break;
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
+
 				case 'taskform':
 					print $this->views->taskFormView($this->data, $this->message);
 					break;
@@ -84,29 +71,12 @@
 			}
 
 		}
-<<<<<<< HEAD:Team/TasksController.php
-		
-=======
 
-		private function verifyLogin() {
-			if (! $this->model->getUser()) {
-				$this->view = 'loginform';
-				return false;
-			} else {
-				return true;
-			}
-		}
-
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 		private function processOrderby() {
 			if ($_GET['orderby']) {
 				$this->model->toggleOrder($_GET['orderby']);
 			}
 		}
-<<<<<<< HEAD:Team/TasksController.php
-		
-		private function handleDelete() {
-=======
 
 		private function processLogout() {
 			if ($_GET['logout']) {
@@ -129,9 +99,6 @@
 		}
 
 		private function handleDelete() {
-			if (!$this->verifyLogin()) return;
-
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if ($error = $this->model->deleteTask($_POST['id'])) {
 				$this->message = $error;
 			}
@@ -139,11 +106,7 @@
 		}
 
 		private function handleSetCompletionStatus($status) {
-<<<<<<< HEAD:Team/TasksController.php
-=======
-			if (!$this->verifyLogin()) return;
 
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if ($error = $this->model->updateTaskCompletionStatus($_POST['id'], $status)) {
 				$this->message = $error;
 			}
@@ -151,11 +114,7 @@
 		}
 
 		private function handleAddTask() {
-<<<<<<< HEAD:Team/TasksController.php
-=======
-			if (!$this->verifyLogin()) return;
 
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if ($_POST['cancel']) {
 				$this->view = 'tasklist';
 				return;
@@ -170,11 +129,7 @@
 		}
 
 		private function handleEditTask() {
-<<<<<<< HEAD:Team/TasksController.php
-=======
-			if (!$this->verifyLogin()) return;
 
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			list($task, $error) = $this->model->getTask($_POST['id']);
 			if ($error) {
 				$this->message = $error;
@@ -186,11 +141,7 @@
 		}
 
 		private function handleUpdateTask() {
-<<<<<<< HEAD:Team/TasksController.php
-=======
-			if (!$this->verifyLogin()) return;
 
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
 			if ($_POST['cancel']) {
 				$this->view = 'tasklist';
 				return;
@@ -205,12 +156,8 @@
 
 			$this->view = 'tasklist';
 		}
-	
+
 	}
-<<<<<<< HEAD:Team/TasksController.php
-	
-	
+
+
 ?>
-=======
-?>
->>>>>>> origin/alex_dev:Examples/MVC Task Manager MutiUser 3 with Prepare/MVC Task Manager MutiUser 3 with Prepare/TasksController.php
