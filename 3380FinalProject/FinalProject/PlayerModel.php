@@ -1,6 +1,6 @@
 <?php
 
-class StatModel{
+class PlayerModel{
   private $error = '';
   private $mysqli;
   private $orderBy;
@@ -54,48 +54,75 @@ class StatModel{
     $_SESSION['orderdirection'] = $this->orderDirection;
   }
 
-
-
-
-
-  public function getPlayerList($id){
-    $this->error = '';
-    $players = array();
-
-    //Are we connected to the database?
-    if(!$this->mysqli){
-      $this->error = "No Connection to database.";
-      return array($players, $this->error);
+public function getOrdering() {
+      return array($this->orderBy, $this->orderDirection);
     }
 
-    if(!$id){
-      $this->error = "No game id specifed.";
-      return array($players, $this->error);
 
-    }
+public function getPlayers() {
+      $this->error = '';
+      $players = array();
+    
+      if (! $this->mysqli) {
+        $this->error = "No connection to database.";
+        return array($player, $this->error);
+      }
+    
+      $orderByEscaped = $this->mysqli->real_escape_string($this->orderBy);
+      $orderDirectionEscaped = $this->mysqli->real_escape_string($this->orderDirection);
 
-    $gameIDEscaped = $this->mysqli->real_escape_string($id);
-
-
-    $sql = "SELECT * 
+      $sql = "SELECT * 
             FROM players, teams
             WHERE players.playerTeamID = teams.team_id
-            AND teams.teamSchool = '$gameIDEscaped'";
+            ORDER BY $orderByEscaped $orderDirectionEscaped";
 
-    //print($sql);
-    if($result = $this->mysqli->query($sql)) {
-      if ($result->num_rows > 0){
-          while($row = $result->fetch_assoc()){
-              array_push($players, $row);
+      if ($result = $this->mysqli->query($sql)) {
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            array_push($players, $row);
           }
-      }
+        }
         $result->close();
-    } else{ 
-        $this->error = $this->mysqli->error;
+      } else {
+        $this->error = $mysqli->error;
+      }
+      
+      return array($players, $this->error);
     }
-    return array($players, $this->error);    
 
-  }
+
+
+    public function getPlayer($id) {
+      $this->error = '';
+      $player = null;
+    
+      if (! $this->mysqli) {
+        $this->error = "No connection to database.";
+        return array($player, $this->error);
+      }
+      
+      if (! $id) {
+        $this->error = "No id specified for player to retrieve.";
+        return array($player, $this->error);
+      }
+      
+      $idEscaped = $this->mysqli->real_escape_string($id);
+    
+      $sql = "SELECT * FROM players WHERE id = '$idEscaped'";
+      if ($result = $this->mysqli->query($sql)) {
+        if ($result->num_rows > 0) {
+          $player = $result->fetch_assoc();
+        }
+        $result->close();
+      } else {
+        $this->error = $this->mysqli->error;
+      }
+      
+      return array($player, $this->error);    
+    }
+      
+
+
 
     public function addPlayer($data) {
       $this->error = '';
@@ -105,23 +132,38 @@ class StatModel{
       $lastName = $data['playerLastName'];
       $number = $data['playerNumber'];
       $position = $data['playerPosition'];
-      $playerTeamID = $data['playerTeamID'];
+      $playerTeamID =$data['playerTeamID'];
       
       if (! $firstName) {
-        $this->error = "No title found for task to add. A title is required.";
+        $this->error = "No first name found for player to add. A first name is required.";
         return $this->error;      
       }
-      
-      if (! $) {
-        $category = 'uncategorized';
+      if (! $lastName) {
+        $this->error = "No last name found for player to add. A last name is required.";
+        return $this->error;      
       }
-      
-      $titleEscaped = $this->mysqli->real_escape_string($title);    
-      $categoryEscaped = $this->mysqli->real_escape_string($category);
-      $descriptionEscaped = $this->mysqli->real_escape_string($description);
-      $userIDEscaped = $this->mysqli->real_escape_string($this->user->userID);
+      if (! $number) {
+        $this->error = "No number found for player to add. A number is required.";
+        return $this->error;      
+      }
+      if (! $position) {
+        $this->error = "No position found for player to add. A position is required.";
+        return $this->error;      
+      }
+      if  (! $playerTeamID){
+        $this->error = "No team found for player to add. A team is required.";
+        return $this->error;
+      }
 
-      $sql = "INSERT INTO tasks (title, description, category, addDate, userID) VALUES ('$titleEscaped', '$descriptionEscaped', '$categoryEscaped', NOW(), $userIDEscaped)";
+      
+      $firstNameEscaped = $this->mysqli->real_escape_string($firstName);    
+      $lastNameEscaped = $this->mysqli->real_escape_string($lastName);
+      $numberEscaped = $this->mysqli->real_escape_string($number);
+      $postiionEscaped = $this->mysqli->real_escape_string($position);
+      $playerTeamIDEscaped = $this->mysqli->real_escape_string($playerTeamID);
+
+
+      $sql = "INSERT INTO players (playerFirstName, playerLastName, playerNumber, playerNumber, playerTeamID) VALUES ('$firstNameEscaped', '$lastNameEscaped', '$numberEscaped', NOW(), '$positionEscaped', '$playerTeamIDEscaped')";
   
       if (! $result = $this->mysqli->query($sql)) {
         $this->error = $this->mysqli->error;
@@ -129,6 +171,84 @@ class StatModel{
       
       return $this->error;
     }
+
+
+
+    public function updatePlayer($data) {
+      $this->error = '';
+
+      $firstName = $data['playerFirstName'];
+      $lastName = $data['playerLastName'];
+      $number = $data['playerNumber'];
+      $position = $data['playerPosition'];
+      $playerTeamID =$data['playerTeamID'];
+      
+      if (! $firstName) {
+        $this->error = "No first name found for player to add. A first name is required.";
+        return $this->error;      
+      }
+      if (! $lastName) {
+        $this->error = "No last name found for player to add. A last name is required.";
+        return $this->error;      
+      }
+      if (! $number) {
+        $this->error = "No number found for player to add. A number is required.";
+        return $this->error;      
+      }
+      if (! $position) {
+        $this->error = "No position found for player to add. A position is required.";
+        return $this->error;      
+      }
+      if  (! $playerTeamID){
+        $this->error = "No team found for player to add. A team is required.";
+        return $this->error;
+      }
+
+      $id = $data['player_id'];
+      if (! $id) {
+        $this->error = "No id specified for player to update.";
+        return $this->error;      
+      }
+
+      
+      $firstNameEscaped = $this->mysqli->real_escape_string($firstName);    
+      $lastNameEscaped = $this->mysqli->real_escape_string($lastName);
+      $numberEscaped = $this->mysqli->real_escape_string($number);
+      $postiionEscaped = $this->mysqli->real_escape_string($position);
+      $playerTeamIDEscpaed = $this->mysqli->real_escape_string($playerTeamID);
+      $idEscaped = $this->mysqli->real_escape_string($id);
+
+
+      $sql = "UPDATE players SET playerfirstName='$firstNameEscaped', playerlastName='$lastNameEscaped', playerNumber='$numberEscaped', playerTeamID='$playerTeamIDEscpaed'  WHERE player_id = $idEscaped";
+      if (! $result = $this->mysqli->query($sql) ) {
+        $this->error = $this->mysqli->error;
+      } 
+      
+      return $this->error;
+    }
+    
+    public function deletePlayer($id) {
+      $this->error = '';
+      
+      if (! $this->mysqli) {
+        $this->error = "No connection to database.";
+        return $this->error;
+      }
+      
+      if (! $id) {
+        $this->error = "No id specified for Player to delete.";
+        return $this->error;      
+      }     
+    
+      $idEscaped = $this->mysqli->real_escape_string($id);
+      $sql = "DELETE FROM players WHERE player_id = $idEscaped";
+      if (! $result = $this->mysqli->query($sql) ) {
+        $this->error = $this->mysqli->error;
+      }
+      
+      return $this->error;
+    }
+
 
 
 }
