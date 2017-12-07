@@ -1,7 +1,8 @@
 body {
 	margin: 10px;
-	background-color: #000;
-	font-family: arial;
+	/*background-color: #000;*/
+	font-family:fantasy;
+    background-image: url("img/image2.jpg");
 }
 
 table, th, td {
@@ -12,7 +13,8 @@ table, th, td {
 h3{
     text-align: center;
     color: goldenrod;
-    font-size: 100px;
+    font-size: 50px;
+    font-family: sans-serif;
 }
 
 th, td {
