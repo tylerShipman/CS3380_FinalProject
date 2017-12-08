@@ -17,3 +17,5 @@ The web interface is the central location to view different teams and players. F
 There will be buttons where a user can create, replace, update, and delete. The "Add Player" button takes you a player form where you can create a player entry. The "edit" button takes you to a player form where you can update player information. The "delete" button deletes a player entry. The player and team database tables are related through a team_id and playerTeamID.
 
 **Video Demonstration:**
+
+![Video Demonstration](https://www.youtube.com/watch?v=gPuT45_Ql9Y&feature=youtu.be)
