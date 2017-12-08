@@ -1,13 +1,14 @@
 body {
 	margin: 10px;
-	/*background-color: #000;*/
+/*	background-color: lightslategray;*/
 	font-family:fantasy;
-    background-image: url("img/image2.jpg");
+    background-image: url("image3.png");
 }
 
 table, th, td {
-	border: 1px solid black;
+	border: 3px solid black;
 	border-collapse: collapse;
+    text-align: center;
 }
 
 h3{
@@ -19,14 +20,17 @@ h3{
 
 th, td {
 	padding: 4px;
+    text-align: center;
 }
 
 th {
 	background-color: goldenrod;
+    text-align: center;
 }
 
 td {
 	background-color: goldenrod;
+    text-align: center;
 }
 
 a.playerButton:link, a.playerButton:visited, a.playerButton:active {
@@ -39,7 +43,7 @@ a.playerButton:link, a.playerButton:visited, a.playerButton:active {
 }
 
 a.playerButton:hover {
-	background-color: #5cd;
+	background-color: red;
 }
 
 form {
@@ -60,5 +64,11 @@ a.order:link, a.order:visited, a.order:active {
 }
 
 a.order:hover {
-	color: #aa4444;
+	color: red;
+}
+
+p2{
+    text-align: center;
+    color: goldenrod;
+    font-family: fantasy;
 }

@@ -192,7 +192,7 @@ EOT2;
 </head>
 <body>
 $body
-<p>CS3380 Final Project</p>
+<p2>CS3380 Final Project</p2>
 </body>
 </html>
 EOT;
