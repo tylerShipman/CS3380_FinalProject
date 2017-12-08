@@ -8,6 +8,8 @@ The purpose for this application is to keep track of team names and the players 
 **Database Schema:**
 The web interface is the central location to view different teams and players. From these options, the application shows specifics for each category. If you click on "Players" the application will allow you to view the player names, #'s, and postition. If "Team" is chosen, the application will allow you to view the different team names. 
 
+![Database Schema](https://github.com/tylerShipman/CS3380_FinalProject/raw/master/Database%20Schema.PNG)
+
 **Entity Relationship Diagram:**
 
 
