@@ -13,20 +13,20 @@
 		}
 		
 		public function playerListView($players, $orderBy = 'playerFirstName', $orderDirection = 'asc', $message = '') {
-			$body = "<h1>Players</h1>\n";
+			$body = "<h3>Player Manager</h3>\n";
 		
 			if ($message) {
 				$body .= "<p class='message'>$message</p>\n";
 			}
 		
-			$body .= "<p><a class='playerButton' href='index.php?view=playerform'>+ Add player</a></p>\n";
+			$body .= "<p style = text-align:center><a class='playerButton' href='index.php?view=playerform'>+ Add player</a></p>\n";
 	
 			if (count($players) < 1) {
 				$body .= "<p>No players to display!</p>\n";
 				return $body;
 			}
 	
-			$body .= "<table>\n";
+			$body .= "<table align=center>\n";
 			//$body .= "<tr><th>delete</th><th>edit</th><th>completed</th>";
 			$body .= "<tr><th>delete</th><th>edit</th>";
 		
@@ -192,7 +192,7 @@ EOT2;
 </head>
 <body>
 $body
-<p>CS3380 Final Project</p>
+<p2>CS3380 Final Project</p2>
 </body>
 </html>
 EOT;

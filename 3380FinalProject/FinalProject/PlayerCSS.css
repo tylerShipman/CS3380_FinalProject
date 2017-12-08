@@ -1,42 +1,54 @@
 body {
 	margin: 10px;
-	background-color: #8ef;
-	font-family: arial;
+/*	background-color: lightslategray;*/
+	font-family:fantasy;
+    background-image: url("image3.png");
 }
 
 table, th, td {
-	border: 1px solid black;
+	border: 3px solid black;
 	border-collapse: collapse;
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+    color: goldenrod;
+    font-size: 50px;
+    font-family: sans-serif;
 }
 
 th, td {
 	padding: 4px;
+    text-align: center;
 }
 
 th {
-	background-color: #6de;
+	background-color: goldenrod;
+    text-align: center;
 }
 
 td {
-	background-color: #fff;
+	background-color: goldenrod;
+    text-align: center;
 }
 
 a.playerButton:link, a.playerButton:visited, a.playerButton:active {
 	color: black;
 	font-size: 1.2em;
 	text-decoration: none;
-	background-color: #6de;
+	background-color: goldenrod;
 	padding: 5px;
-	border: 1px solid #4bc;
+	border: 1px solid white;
 }
 
 a.playerButton:hover {
-	background-color: #5cd;
+	background-color: red;
 }
 
 form {
-	background-color: #6de;
-	border: 1px solid #4bc;
+	background-color: goldenrod;
+	border: 1px solid goldenrod;
 	padding: 5px;
 }
 
@@ -52,5 +64,11 @@ a.order:link, a.order:visited, a.order:active {
 }
 
 a.order:hover {
-	color: #aa4444;
+	color: red;
+}
+
+p2{
+    text-align: center;
+    color: goldenrod;
+    font-family: fantasy;
 }
