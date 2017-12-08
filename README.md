@@ -11,7 +11,7 @@ The web interface is the central location to view different teams and players. F
 ![Database Schema](https://github.com/tylerShipman/CS3380_FinalProject/raw/master/Database%20Schema.PNG)
 
 **Entity Relationship Diagram:**
-
+![ERD](https://github.com/tylerShipman/CS3380_FinalProject/blob/master/ERD.PNG?raw=true)
 
 **Implementation of CRUD:**
 There will be buttons where a user can create, replace, update, and delete. The "Add Player" button takes you a player form where you can create a player entry. The "edit" button takes you to a player form where you can update player information. The "delete" button deletes a player entry. The player and team database tables are related through a team_id and playerTeamID.
