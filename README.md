@@ -18,5 +18,5 @@ There will be buttons where a user can create, replace, update, and delete. The 
 
 **Video Demonstration:**
 
-[![CS3380 Video Demonstration](http://img.youtube.com/vi/gPuT45_Ql9Y/0.jpg)](http://www.youtube.com/watch?v=gPuT45_Ql9Y "CS3380 Final Project")
+[![CS3380 Video Demonstration](http://img.youtube.com/vi/5gYNt8lBFi0/0.jpg)](http://www.youtube.com/watch?v=5gYNt8lBFi0 "CS3380 Final Project")
 
