@@ -122,7 +122,7 @@
 <link rel="stylesheet" type="text/css" href="taskmanager.css">
 </head>
 <body>
-<h1>Players</h1>
+<h1>Player Information</h1>
 EOT1;
 
 			if ($message) {
@@ -149,7 +149,7 @@ EOT1;
   </select>
   </p>
 
-  <p>Team<br />
+  <p>Position<br />
   <select name="playerPosition">
 	  <option value="Guard" {$selected2['Guard']}>Guard</option>
 	  <option value="Forward" {$selected2['Forward']}>Forward</option>
